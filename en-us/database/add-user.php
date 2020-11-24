@@ -109,56 +109,7 @@ class User
 
 			if($saveUser_run   =  $db->query($saveUser))
 			{
-						# send mail to user
-						$to       = $this->uemail;
-			            $subject  = 'Oneplace SMS';
-						$message  ='<html>
-			                            <head>
-			                               	<title>Oneplace SMS</title>
-			                                    </head>
-			                                        <body>
-			                                          <div style="margin:0 auto;  background-color:#fff; font-family:Calibri Light; border-radius:5px; padding:10px;">
-
-			                                            	<h5 style="color:#000; font-size:20px;">Welcome to Oneplace SMS</h5>
-
-			                                            	You have been added as ad admin in Oneplace SMS System<br>
-
-			                                            	Your login credentials are:<br><br>
-			                                            	Username: '.$this->uusername.'<br>
-			                                            	Password: '.$this->upassword.'
-
-			                                            	<br><br>
-			                                            	<i>For more queries, contact us at</i><br>
-
-			                                            	<div style="clear:both; border-bottom:1px solid #dcdcdc;"></div>
-			                                            		<p style="color:#606060; font-size:14px;">
-			                                            		Oneplace Technologies<br>
-			                                            		P.O Box 80063,00200<br>
-			                                            		Nairobi - Kenya<br>
-			                                            		Email: info@oneplacetechnologies.com . kanyikennedy@gmail.com | Phone: +254 705 992 941<br><br>
-
-			                                            		+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-			                                            		<br>
-			                                            		This system is distributed as open source. <br>
-			                                            		You can do anything you want with it<br>
-			                                            		Make sure the system footer remains "Developed by Oneplace Technologies"			                                            		
-			                                            		+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-			                                            		</p>
-			                                            	</div>
-			                                          </div>
-			                                        </body>
-			                                       </html>';
-				            $headers  = 'MIME-Version: 1.0' . "\r\n";
-				            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-				            $headers .= 'From: Oneplace SMS<oneplacesms>' . "\r\n";
-				            $headers.='X-Mailer: PHP/' . phpversion()."\r\n";
-
-				            $send = mail($to, $subject, $message, $headers);
-
-				            if($send){
-				            	echo "<h5 style='color:green;'><i class='fa fa-check-square'></i> User added</h5>";
-				            }
+			    echo "<h5 style='color:green;'><i class='fa fa-check-square'></i> User added</h5>";
 			}
 		}
 

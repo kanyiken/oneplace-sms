@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 /**
 * Get all user data into database and possibly send a text
@@ -23,7 +25,7 @@ class User
 			$this->as_username			=   $_REQUEST['as_username'];
 			$this->as_api_key			=   $_REQUEST['as_api_key'];
 			$this->as_sender_id			=   $_REQUEST['as_sender_id'];
-			$this->default_country_code	=   $_REQUEST['country_code'];
+			$this->default_country_code	=   '+254';
 
 			# validations
 			if(empty($this->admin_email) || empty($this->admin_phone) || empty($this->admin_username) || empty($this->admin_password) || empty($this->as_username) || empty($this->as_api_key))
@@ -36,7 +38,7 @@ class User
 				exit("<h5 style='color:orange'>Username should not contain numbers or special characters</h5>");
 			}
 
-			if(strlen($this->admin_username) < 6)
+			if(strlen($this->admin_username) < 3)
 			{
 				exit("<h5 style='color:orange'>Username should be a minimum of 6 letters</h5>");
 			}
@@ -45,12 +47,12 @@ class User
 			{
 				exit("<h5 style='color:orange'>Password should be a minimum of 8 letters</h5>");
 			}
-
+/******
 			if(! filter_var($this->admin_email, FILTER_VALIDATE_EMAIL))
 			{
 				exit("<h5 style='color:orange'>Please check your email format</h5>");
 			}
-
+			//*****/
 			#verify email
 			$verify_email = $db->query("SELECT * FROM `sms_users` WHERE `email`='$this->admin_email'");
 			if($verify_email->num_rows > 0)
@@ -66,6 +68,7 @@ class User
 			}
 
 			$code     = rand(1000,9999);
+			
 
 			# get date today
 			$date     = date('d-M-Y H:i:s');
@@ -127,13 +130,15 @@ class User
 				            //$headers .= 'From: Oneplace SMS<info@oneplacetechnologies.com>' . "\r\n";
 				            //$headers.='X-Mailer: PHP/' . phpversion()."\r\n";
 
-							require_once "../../en-us/database/mail.php";
-							$mail = new Mail();
-				            $send = $mail->set_recipients($to)->set_subject($subject)->set_message($message)->send();
+							//require_once "../../en-us/database/mail.php";
+							//$mail = new Mail();
+				            //$send = $mail->set_recipients($to)->set_subject($subject)->set_message($message)->send();
 
 				            echo $this->json_encoder("okay");
 					}
+					else{ exit($db->error); }
 			}
+			else{ exit($db->error); }
 		}
 
 		

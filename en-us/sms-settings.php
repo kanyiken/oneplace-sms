@@ -122,7 +122,7 @@ require_once 'database/topfile.php';
                 <input type="text" id="as_key" value="<?php echo $as_key; ?>" class="form-control" value="Africastalking API Key" />
             </div>
             <div class="form-group">
-                <label for="text" accesskey="E">Africastalking Sender ID (Default:SMSLEOPARD)</label>
+                <label for="text" accesskey="E">Africastalking Sender ID (Default:AFRICASTKNG)</label>
                 <input type="text" id="as_senderid" value="<?php echo $as_sender_id; ?>" class="form-control" value="Africastalking Sender ID" />
             </div>
             <div class="form-group">

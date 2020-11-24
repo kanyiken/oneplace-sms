@@ -146,7 +146,7 @@ require_once 'database/topfile.php';
             <?php if($mybalance <= $setminimum){ ?>
             <div class="col-md-12" style="color:#606060; text-align:center; padding:20px; border-radius:4px;">
                 <div class="col-md-12">
-                  <font style="color:orange; font-size:26px;">Your Credits Balance is going low</font><br><br>
+		  <font style="color:orange; font-size:26px;">Your Credits Balance (<?=$mybalance?>) is going low</font><br><br>
                   <a href="#" data-toggle="modal" data-target="#topup" class="btn btn-default">Purchase Credits</a> 
                 </div>
             </div> 

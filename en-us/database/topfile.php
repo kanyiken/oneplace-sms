@@ -52,8 +52,8 @@ session_start();
                         $data              = $gateway->getUserData();
                         $bal               = $data->balance;
 
-                        $dal               = explode(".", $bal);
-                        $mybalance         = (int) $dal[0];
+                        $dal               = explode(" ", $bal);
+                        $mybalance         = (int) $dal[1];
 						
                     }
                 catch ( AfricasTalkingGatewayException $e )

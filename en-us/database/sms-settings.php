@@ -20,7 +20,7 @@ class SmsSettings
 				$this->as_senderid    =  $db->real_escape_string($_REQUEST['as_senderid']);
 				$this->asalertvalue   =  $db->real_escape_string($_REQUEST['asalertvalue']);
 				#check empty
-				if(!empty($this->as_user) && !empty($this->as_key) && !empty($this->as_senderid) && !empty($this->asalertvalue))
+				if(!empty($this->as_user) && !empty($this->as_key) && !empty($this->asalertvalue))
 				{
 					#check against database for record
 			$update = $db->query("UPDATE `sms_settings` SET `as_username`='$this->as_user',`as_key`='$this->as_key',`as_sender_id`='$this->as_senderid',`minbalance`='$this->asalertvalue'");

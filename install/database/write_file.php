@@ -106,7 +106,7 @@ class WriteFile
 									  `password_token` varchar(255) NULL,
 									  `token_expiry`  int NULL,
 									  `phone` varchar(20) NOT NULL,
-									  `log_permit` int(1) NOT NULL
+									  `log_permit` int(1) NULL
 									) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 								");
 								#############################################################################################################
@@ -145,7 +145,7 @@ class WriteFile
 									  `system_name` varchar(100) NOT NULL,
 									  `security_2_factor` int(1) NOT NULL,
 									  `minbalance` int(2) NOT NULL,
-									  `broadcast_authority` int(1) NOT NULL,
+									  `broadcast_authority` int(1) NULL,
 									  `default_country_code` varchar(5) NOT NULL default '+254',
 									  `password_reset_type` varchar(10) NOT NULL,
 									  `email_protocol` enum('smtp','mail','sendmail','qmail') not null default 'mail',
