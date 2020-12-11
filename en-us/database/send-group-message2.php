@@ -1,4 +1,4 @@
-am<?php
+<?php
 
 require_once 'AfricasTalkingGateway.php';
 
@@ -21,38 +21,25 @@ class GroupMessage
 			{
 				if($group_msg == 1)
 				{
-					#Database Queries within a loop are very expensive
-					
-					//$gd = $db->query("SELECT * FROM `sms_group_members` WHERE `group`='$this->vgroupno'");
-					//	while($userdata = $gd->fetch_array())
-					//	{
-					//		$user_id = $userdata['member'];
-					//		# get phone number
-					//		$user_tbl_check = $db->query("SELECT * FROM `sms_contacts` WHERE `id`='$user_id'");
-					//			$data_nos = $user_tbl_check->fetch_array();
-					//			$listNos .= $data_nos['phone_number'].",";
-					//	}
-					//$grd = $db->query("SELECT * FROM `sms_groups` WHERE `id`='$this->vgroupno'");
-					//	$group_data = $grd->fetch_array();
-					//		$groupName = $group_data['group_name'];
-					
-					# GET PHONE NUMBERS AND GROUP DATA
-					$gd = $db->query("SELECT 
+					$sql = "SELECT 
 										`g`.`group_name`,`c`.`phone_number` 
 										FROM `sms_group_members` as `gm`
 										inner join `sms_groups` as `g` on `g`.`id`=`gm`.`group`
 										inner join `sms_contacts` as `c` on `c`.`id`=`gm`.`member`
-										WHERE `gm`.`group`=2"
-									);
-					
+										WHERE `gm`.`group`='$this->vgroupno'";
+
+					$gd = $db->query($sql);
 					if($gd->num_rows > 0)
 					{
+                        $listNos = '';
+                        $groupName = '';
 						while($userdata = $gd->fetch_array())
 						{
 							$listNos .= $userdata['phone_number'].",";
-							$groupName = $group_data['group_name'];
+							$groupName = $userdata['group_name'];
 						}
 
+						echo $groupName;
 						# SMS Code	
 						$username                      = $as_username;
 						$apikey                        = $as_key;
@@ -103,5 +90,3 @@ class GroupMessage
 }
 
 $groupmessage = new GroupMessage();
-
-?>
