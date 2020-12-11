@@ -19,7 +19,6 @@ $permit = "<p style='color:orange'>Sorry, you dont have permission to delete con
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/owl.theme.css">
 <link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.4.custom.min.css">
-<link rel="stylesheet" href="rs-plugin/css/settings.css">
 <link rel="stylesheet" href="css/theme.css">
 <link rel="stylesheet" href="css/colors/turquoise.css" id="switch_style">
 <link rel="stylesheet" href="css/responsive.css">
