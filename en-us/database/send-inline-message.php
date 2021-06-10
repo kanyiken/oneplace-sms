@@ -33,12 +33,12 @@ class InlineMessage
 							$from                      = $as_sender_id;
 						}
 						$recipients                    = $this->inlineno;
-						$message                       = $this->inlinemsg;
+						$message                       = preg_replace('/\s\s+/', ' ', $this->inlinemsg);
 
 						$gateway                       = new AfricasTalkingGateway($username, $apikey);
 						try
 						{
-							$results = $gateway->sendMessage($recipients, str_replace("\n","",$message), $from);
+							$results = $gateway->sendMessage($recipients, $message, $from);
 							if($results)
 							{
 								$date     = date('d-M-Y H:i:s');
