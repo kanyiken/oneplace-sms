@@ -55,7 +55,7 @@ class GroupMessage
 						$gateway                       = new AfricasTalkingGateway($username, $apikey);
 						try
 						{
-							$results = $gateway->sendMessage($recipients, $message, $from);
+							$results = $gateway->sendMessage($recipients, str_replace("\n","",$message), $from);
 							if($results)
 							{
 								$date     = date('d-M-Y H:i:s');
