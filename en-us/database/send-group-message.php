@@ -45,7 +45,7 @@ class GroupMessage
 							$from                      = $as_sender_id;
 						}
 						$recipients                    = $listNos;
-						$message                       = $this->gmmessage;
+						$message                       = preg_replace('/\s\s+/', ' ', $this->gmmessage);
 
 						$gateway                       = new AfricasTalkingGateway($username, $apikey);
 						try
