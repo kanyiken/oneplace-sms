@@ -50,12 +50,12 @@ class GroupMessage
 							$from                      = $as_sender_id;
 						}
 						$recipients                    = $listNos;
-						$message                       = $this->vmessage;
+						$message                       = preg_replace('/\s\s+/', ' ', $this->vmessage);
 
 						$gateway                       = new AfricasTalkingGateway($username, $apikey);
 						try
 						{
-							$results = $gateway->sendMessage($recipients, str_replace("\n","",$message), $from);
+							$results = $gateway->sendMessage($recipients, $message, $from);
 							if($results)
 							{
 								$date     = date('d-M-Y H:i:s');
