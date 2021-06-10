@@ -33,12 +33,12 @@ class SingleMessage
 							$from                      = $as_sender_id;
 						}
 						$recipients                    = $this->openphonenumber;
-						$message                       = $this->openmessage;
+						$message                       = preg_replace('/\s\s+/', ' ', $this->openmessage);
 
 						$gateway                       = new AfricasTalkingGateway($username, $apikey);
 						try
 						{
-							$results = $gateway->sendMessage($recipients, str_replace("\n","",$message), $from);
+							$results = $gateway->sendMessage($recipients, $message, $from);
 							if($results)
 							{
 								$date     = date('d-M-Y H:i:s');
