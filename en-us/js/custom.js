@@ -483,7 +483,7 @@ jQuery(document).ready(function () {
     {
 
         var openphonenumber    = $('#openphonenumber').val();
-        var openmessage        = $('#openmessage').val();
+        var openmessage        = $('#openmessage').val().replace(/\n/g, " ");
 
         $('#sendopenmessage').html('<i class="fa fa-refresh fa-spin"></i>');
 
@@ -505,7 +505,7 @@ jQuery(document).ready(function () {
     {
 
         var gmidentity         = $(this).attr('value');
-        var gmmessage          = $('#groupmsg'+gmidentity).val();
+        var gmmessage          = $('#groupmsg'+gmidentity).val().replace(/\n/g, " ");
 
         $('#sendgroupmsg'+gmidentity).html('<i class="fa fa-refresh fa-spin"></i>');
 
@@ -526,7 +526,7 @@ jQuery(document).ready(function () {
     {
 
         var vgroupno          = $('#vgroupno').val();
-        var vmessage          = $('#vmessage').val();
+        var vmessage          = $('#vmessage').val().replace(/\n/g, " ");
 
         $('#vgroup').html('<i class="fa fa-refresh fa-spin"></i>');
 
@@ -547,7 +547,7 @@ jQuery(document).ready(function () {
     {
         var msgidentity        = $(this).attr('value');
         var inlineno           = $('#inlineno'+msgidentity).val();
-        var inlinemsg          = $('#inlinemsg'+msgidentity).val();
+        var inlinemsg          = $('#inlinemsg'+msgidentity).val().replace(/\n/g, " ");
 
         $('#sendinlinemsg'+msgidentity).html('<i class="fa fa-refresh fa-spin"></i>');
 
