@@ -47,8 +47,7 @@ class WriteFile
 					if($myfile)
 					{
 
-					$txt = "
-<?php\n
+					$txt = "<?php\n
 	# Simple Connection File\n
 
 	# PROUDLY POWERED BY ONEPLACE TECHNOLOGIES LTD\n
