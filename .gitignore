@@ -1,2 +1,4 @@
-en-us/database/config.php
-en-us/uploads
+src/en-us/database/config.php
+src/en-us/uploads
+.DS_Store
+/*/.DS_Store
